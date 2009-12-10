@@ -1,0 +1,18 @@
+log/*
+tmp/**/*
+db/schema.rb
+db/*.sqlite3
+public/system
+*.DS_Store
+coverage/*
+*.swp
+!.keep
+
+# Bundler
+#########
+bin/*
+vendor/bundler_gems/doc
+vendor/bundler_gems/gems
+vendor/bundler_gems/specifications
+vendor/bundler_gems/environment.rb
+
