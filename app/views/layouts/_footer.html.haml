@@ -1,0 +1,9 @@
+%div{:id => "footer"}
+  %p= raw "Copyright &copy; #{current_year_range(2009)} #{link_to 'DentPro', 'http://www.dentpro.com'}, All Rights Reserved"
+  - if current_user
+    %li= link_to current_user.email, user_path(current_user)
+    %li= link_to 'logout', sign_out_path
+  - else
+    %li= link_to 'login', sign_in_path
+  
+

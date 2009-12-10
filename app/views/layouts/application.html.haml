@@ -1,0 +1,25 @@
+!!! 5
+
+%html
+
+  %head
+    %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}
+    %title= @browser_title || 'DentPro'
+
+    = stylesheet_link_tag "formtastic"
+    = stylesheet_link_tag "formtastic_changes"
+
+  %body
+
+    #container
+      = render :partial => "layouts/header"
+
+      #content
+        = render :partial => "layouts/flashes"
+
+        %div{:id => "main"}
+          %div{:id => "main-inner"}
+            = yield
+
+      = render :partial => "layouts/footer"
+
