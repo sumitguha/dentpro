@@ -29,8 +29,19 @@ Rails::Initializer.run do |config|
     :version => '0.8.4'
 
   config.gem "formtastic",
+    :lib => 'formtastic',
     :source  => 'http://gemcutter.org',
     :version => '0.9.7'
+
+  config.gem 'haml',
+    :lib => 'haml',
+    :source  => 'http://gemcutter.org',
+    :version => '>=2.2.0'
+
+  config.gem "compass",
+    :lib     => 'compass',
+    :source  => 'http://gemcutter.org',
+    :version => '0.8.17'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
