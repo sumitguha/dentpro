@@ -1,4 +1,7 @@
-%div{:id => 'header-left'}
-  %h1{:id => 'header-title'}
-    = link_to 'dentpro', root_path
+#header-left
+  %a#logo{:href => root_url}
+    %img{:src => "/images/newLogo.jpg", :alt => "DentPro"}
+
+#header-right
+  %img#phone{:src => "/images/imgPhone.jpg", :alt => "(877) 336-8776"}
 

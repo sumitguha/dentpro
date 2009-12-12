@@ -14,7 +14,7 @@
     = stylesheet_link_tag "formtastic"
     = stylesheet_link_tag "formtastic_changes"
 
-  %body{:class => "bp"}
+  %body.bp
 
     #container
 
@@ -24,13 +24,9 @@
       #content
         = render :partial => "layouts/flashes"
 
-        #main
-          #main-inner
-            = yield
+        #content-inner
+          = yield
 
       #footer
         = render :partial => "layouts/footer"
-
-      #sidebar
-        %p sidebar
 

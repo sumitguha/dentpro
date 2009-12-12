@@ -1,4 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.with_options :controller => 'home' do |m|
+    m.contact_us '/contact_us', :action => 'contact_us', :conditions => { :method => :get }
+    m.who_we_are '/who_we_are', :action => 'who_we_are', :conditions => { :method => :get }
+    m.what_we_do '/what_we_do', :action => 'what_we_do', :conditions => { :method => :get }
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

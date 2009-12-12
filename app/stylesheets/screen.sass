@@ -7,6 +7,8 @@
 // Import the non-default scaffolding module.
 @import blueprint/modules/scaffolding.sass
 
+@import compass/utilities.sass
+
 // To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
 // +blueprint
 
@@ -16,25 +18,98 @@
 body.bp
   +blueprint-utilities
   +blueprint-debug
-  +blueprint-interaction
+  //+blueprint-interaction
   // Remove the scaffolding when you're ready to start doing visual design.
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
-form.bp
-  +blueprint-form
+//form.bp
+  //+blueprint-form
 
 // Page layout can be done using mixins applied to your semantic classes and IDs:
-body.three-col
+body.bp
+
+  background= !page_background_color
+
   #container
     +container
+    background= !content_background_color
+
   #header, #footer
-    +column(!blueprint_grid_columns)
-  #sidebar
-    // One third of the grid columns, rounding down. With 24 cols, this is 8.
-    !sidebar_columns = floor(!blueprint_grid_columns / 3)
-    +column(!sidebar_columns)
+    +column(!blueprint_grid_columns, true)
+    a
+      +hover-link
+
+  #header
+    background: url(/images/newHeader.jpg) no-repeat
+
+  #header-left
+    +column(!blueprint_grid_columns / 2)
+    :height 105px
+    a
+      img
+        :margin-top 15px
+        :margin-left 15px
+
+  #header-right
+    +column(!blueprint_grid_columns / 2, true)
+    #phone
+      float: right
+      :margin-right 15px
+
   #content
-    // Two thirds of the grid columns, rounding up.
-    // With 24 cols, this is 16.
-    !content_columns = ceil(2 * !blueprint_grid_columns / 3)
     // true means it's the last column in the row
-    +column(!content_columns, true)
+    +column(!blueprint_grid_columns, true)
+    :min-height 400px
+    h1, p
+      :color = !content_color
+
+  #content-inner
+    margin: 1em 40px 1em 40px
+
+    #contact-us
+
+      #contact-address
+        +column((!blueprint_grid_columns / 2) - 1)
+        +no-bullets
+
+      #contact-photo
+        +column((!blueprint_grid_columns / 2) - 1, true)
+        :align right
+
+      #contact-map
+        +column((!blueprint_grid_columns) - 1, true)
+        :margin-top 2em
+
+  #footer
+    :height 7em
+    :margin-top 2em
+    :margin-bottom 2em
+    :padding-top 1em
+    background= !footer_background_color
+    border-top= 5px "solid" !footer_border_color
+    p
+      :color = !footer_color
+      :font-size = !footer_font_size
+      :padding-top 0px
+      :padding-bottom 0px
+      :margin-top 0px
+      :margin-bottom 0px
+      :margin-left 10px
+      a
+        :color = !footer_color
+        :font-size = !footer_font_size
+
+  #footer-left
+    +column(!blueprint_grid_columns / 2)
+
+  #footer-right
+    +column(!blueprint_grid_columns / 2, true)
+    #aaatext
+      +column(5)
+      text-align: right
+    #aaa
+      +column(3, true)
+      float: right
+      :margin-right 15px
+      :margin-bottom 10px
+
+
