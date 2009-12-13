@@ -1,15 +1,14 @@
-%div{:id => 'flashes'}
-  - flash.each do |key, value|
-    %div{:class => 'flash-wrapper ui-widget'}
+- flash.each do |key, value|
+  %div{:class => 'flash-wrapper ui-widget'}
 
-      - if [:info, :notice, :success].include? key
-        %div{:class => "flash ui-state-highlight ui-corner-all"}
-          %p
-            %span{:class => "flash-icon ui-icon ui-icon-info"}
-            =h value
-      - elsif [:warn, :error, :fatal, :failure].include? key
-        %div{:class => "flash ui-state-error ui-corner-all"}
-          %p
-            %span{:class => "flash-icon ui-icon ui-icon-info"}
-            =h value
+    - if [:info, :notice, :success].include? key
+      %div{:class => "flash ui-state-highlight ui-corner-all"}
+        %p
+          %span{:class => "flash-icon ui-icon ui-icon-info"}
+          =h value
+    - elsif [:warn, :error, :fatal, :failure].include? key
+      %div{:class => "flash ui-state-error ui-corner-all"}
+        %p
+          %span{:class => "flash-icon ui-icon ui-icon-info"}
+          =h value
 

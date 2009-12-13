@@ -24,9 +24,15 @@
         = render :partial => "layouts/header"
 
       #content
-        = render :partial => "layouts/flashes"
 
         #content-inner
+
+          #nav
+            = render :partial => "layouts/nav"
+
+          #flashes
+            = render :partial => "layouts/flashes"
+
           = yield
 
       #footer

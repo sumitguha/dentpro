@@ -12,12 +12,21 @@
 // To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
 // +blueprint
 
+// General Classes
+
+.col-one
+  +column(!blueprint_grid_columns_two_column)
+
+.col-two
+  +column(!blueprint_grid_columns_two_column)
+  +last
+
 //Recommended Blueprint configuration with scoping and semantic layout:
 +blueprint-typography("body.bp")
 +blueprint-scaffolding("body.bp")
 body.bp
   +blueprint-utilities
-  +blueprint-debug
+  //+blueprint-debug
   //+blueprint-interaction
   // Remove the scaffolding when you're ready to start doing visual design.
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
@@ -33,51 +42,65 @@ body.bp
     +container
     background= !content_background_color
 
-  #header, #footer
-    +column(!blueprint_grid_columns, true)
+  #header, #footer, #nav
+    +column(!blueprint_grid_columns)
+    +last
     a
       +hover-link
 
   #header
     background: url(/images/newHeader.jpg) no-repeat
 
-  #header-left
-    +column(!blueprint_grid_columns / 2)
-    :height 105px
-    a
-      img
-        :margin-top 15px
-        :margin-left 15px
+    #header-left
+      +column(!blueprint_grid_columns / 2)
+      :height 105px
+      a
+        img
+          :margin-top 15px
+          :margin-left 15px
 
-  #header-right
-    +column(!blueprint_grid_columns / 2, true)
-    #phone
-      float: right
-      :margin-right 15px
+    #header-right
+      +column(!blueprint_grid_columns / 2)
+      +last
+      #phone
+        float: right
+        :margin-right 15px
+
+  #nav
+    margin-top: 0.5em
+    margin-bottom: 2em
+    ul
+      +horizontal-list
+      li
+        font-size: 1.2em
+        font-weight: bold
+        margin-right: 10px
 
   #content
-    // true means it's the last column in the row
-    +column(!blueprint_grid_columns, true)
-    :min-height 400px
+    +column(!blueprint_grid_columns)
+    +last
+    :min-height 500px
     h1, p
       :color = !content_color
 
-  #content-inner
-    margin: 1em 40px 1em 40px
-
-    #contact-us
+    #content-inner
+      +prepend(1)
+      +append(1)
+      +column(!blueprint_content_columns)
+      +last
 
       #contact-address
-        +column((!blueprint_grid_columns / 2) - 1)
         +no-bullets
 
       #contact-photo
-        +column((!blueprint_grid_columns / 2) - 1, true)
+        +last
         :align right
 
       #contact-map
-        +column((!blueprint_grid_columns) - 1, true)
         :margin-top 2em
+        
+      #metals
+        clear: both
 
   #footer
     :height 7em
@@ -98,18 +121,18 @@ body.bp
         :color = !footer_color
         :font-size = !footer_font_size
 
-  #footer-left
-    +column(!blueprint_grid_columns / 2)
+    #footer-left
+      +column(!blueprint_grid_columns / 2)
 
-  #footer-right
-    +column(!blueprint_grid_columns / 2, true)
-    #aaatext
-      +column(5)
-      text-align: right
-    #aaa
-      +column(3, true)
-      float: right
-      :margin-right 15px
-      :margin-bottom 10px
+    #footer-right
+      +column(!blueprint_grid_columns / 2, true)
+      #aaatext
+        +column(5)
+        text-align: right
+      #aaa
+        +column(3, true)
+        float: right
+        :margin-right 15px
+        :margin-bottom 10px
 
 

@@ -1,20 +1,29 @@
-// Here is where you can define your constants for your application and to configure the blueprint framework.
-// Feel free to delete these if you want keep the defaults:
+// Constants for your application and the blueprint framework.
+//////
 
-!blueprint_grid_columns = 18
-!blueprint_grid_width   = 25px
-!blueprint_grid_margin  = 15px
+// Grid Calculations
+//////
+
+// 720px Wide
+!blueprint_grid_columns   = 18
+!blueprint_grid_width     = 25px
+!blueprint_grid_margin    = 15px
+
+// the center content column width - 640px
+!blueprint_content_columns = !blueprint_grid_columns - 2
+
+// the width of each content column in a two column layout
+!blueprint_grid_columns_two_column = !blueprint_grid_columns / 2 - 1
 
 // Colors & Sizes
+//////
 
-!header_color= #ccc
+!header_color             = #ccc
+!page_background_color    = #ccc
+!content_background_color = #fff
+!content_color            = #000
+!footer_color             = #ccc
+!footer_font_size         = 11px
+!footer_border_color      = #7A8CA4
+!footer_background_color  = #08234B
 
-!page_background_color= #ccc
-
-!content_background_color= #fff
-!content_color= #000
-
-!footer_color= #ccc
-!footer_font_size= 11px
-!footer_border_color= #7A8CA4
-!footer_background_color= #08234B

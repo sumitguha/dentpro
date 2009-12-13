@@ -6,7 +6,6 @@
       = link_to current_user.email, user_path(current_user)
       = link_to 'Logout', sign_out_path
     - else
-      = "#{link_to 'Contact Us', contact_us_path} | "
       = link_to 'Admin Login', sign_in_path
 
 #footer-right
