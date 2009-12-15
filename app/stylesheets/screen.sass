@@ -21,6 +21,19 @@
   +column(!blueprint_grid_columns_two_column)
   +last
 
+.thumb-small
+  +push(1)
+  padding-left: 2em
+  padding-right: 2em
+  width: 130px
+
+.thumb
+  +push(1)
+  padding-left: 2em
+  padding-right: 2em
+  width: 260px
+
+
 //Recommended Blueprint configuration with scoping and semantic layout:
 +blueprint-typography("body.bp")
 +blueprint-scaffolding("body.bp")
@@ -98,7 +111,7 @@ body.bp
 
       #contact-map
         :margin-top 2em
-        
+
       #metals
         clear: both
 
