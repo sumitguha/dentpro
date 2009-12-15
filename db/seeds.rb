@@ -9,8 +9,11 @@
 if RAILS_ENV == 'development'
   User.destroy_all
   User.create(:email => 'admin@dentpro.com', :password => 'test', :password_confirmation => 'test')
-  u = User.find_by_email('admin@dentpro.com')
-  u.email_confirmed = true
-  u.save
+else
+  User.create(:email => 'admin@dentpro.com', :password => '3a9eb6fa508ce0c63ce92fa7ea', :password_confirmation => '3a9eb6fa508ce0c63ce92fa7ea')
 end
+
+u = User.find_by_email('admin@dentpro.com')
+u.email_confirmed = true
+u.save
 
