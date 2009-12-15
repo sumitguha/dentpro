@@ -1,0 +1,24 @@
+%h1 Where We Are
+
+- if signed_in?
+  = link_to 'Create new location', new_location_path
+
+%br.clear
+%br
+
+- if @states && @locations
+  %p= "DentPro currently has #{@locations.length} franchise locations in #{@states.length} states across America.  If you are looking for our headquarters location in Concord, CA please see the #{link_to 'contact us', contact_us_path} page."
+
+  - @states.each do |state|
+
+    %h2= state
+
+    - @locations.each do |location|
+      - if location.state == state
+        %h3= link_to location.name, location
+
+    %br
+
+- else
+  %p Sorry no locations found.
+

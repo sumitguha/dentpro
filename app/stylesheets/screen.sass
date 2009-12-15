@@ -49,6 +49,7 @@ body.bp
 // Page layout can be done using mixins applied to your semantic classes and IDs:
 body.bp
 
+  color= !content_color
   background= !page_background_color
 
   #container
@@ -93,8 +94,8 @@ body.bp
     +column(!blueprint_grid_columns)
     +last
     :min-height 500px
-    h1, p
-      :color = !content_color
+    //h1, p
+    //  :color = !content_color
 
     #content-inner
       +prepend(1)

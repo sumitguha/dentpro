@@ -1,0 +1,11 @@
+%h1 New location
+
+- semantic_form_for @location do |form|
+  = form.error_messages
+  = render :partial => "/locations/form", :locals => { :form => form }
+  %br
+  - form.buttons do
+    = form.commit_button "Create"
+
+= link_to 'Back', locations_path
+

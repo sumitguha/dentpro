@@ -1,0 +1,83 @@
+%h1= @location.name
+
+- unless @location.description.blank?
+  %h2= @location.description
+
+- unless @location.street.blank? && @location.city.blank? && @location.zip.blank?
+  %p
+    %b Address:
+    %br
+    = @location.street
+    %br
+    - unless @location.street2.blank?
+      = @location.street2
+      %br
+    = "#{@location.city}, #{@location.state} #{@location.zip}"
+    %br
+
+- unless @location.region.blank?
+  %p
+    %b Region:
+    = @location.region
+
+- unless @location.email.blank?
+  %p
+    %b Email:
+    = link_to(@location.email, "mailto:#{@location.email}")
+
+- unless @location.phone1.blank?
+  %p
+    %b Phone:
+    = @location.phone1
+
+- unless @location.phone2.blank?
+  %p
+    %b Phone:
+    = @location.phone2
+
+- unless @location.fax.blank?
+  %p
+    %b Fax:
+    = @location.fax
+
+- unless @location.url.blank?
+  %p
+    %b WebSite:
+    = @location.url
+
+- unless @location.map_url.blank?
+  %p
+    %b Map Location:
+    = @location.map_url
+
+- unless @location.years_in_business.blank?
+  %p
+    %b Years in business:
+    = @location.years_in_business
+
+- unless @location.service_areas.blank?
+  %p
+    %b Service areas:
+    = @location.service_areas
+
+- unless @location.hours_of_operation.blank?
+  %p
+    %b Hours of operation:
+    = @location.hours_of_operation
+
+- unless @location.additional_info.blank?
+  %p
+    %b Additional info:
+    = @location.additional_info
+
+- unless @location.photo_url.blank?
+  %img{:src => @location.photo_url, :width => '250'}
+
+
+%br.clear
+
+- if signed_in?
+  = "#{link_to('Edit', edit_location_path(@location))} |"
+  = "#{link_to 'Destroy', @location, :confirm => 'Are you sure?', :method => :delete} |"
+
+= link_to('Back', locations_path)

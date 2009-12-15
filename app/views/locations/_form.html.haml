@@ -1,0 +1,40 @@
+- form.inputs do
+  = form.input :name, :label => 'Name'
+  %br
+  = form.input :description, :label => 'Description', :hint => 'Displays below franchise name.'
+  %br
+  = form.input :street, :label => 'Street'
+  %br
+  = form.input :street2, :label => 'Street 2'
+  %br
+  = form.input :city, :label => 'City'
+  %br
+  = form.input :state, :label => 'State'
+  %br
+  = form.input :zip, :label => 'Zip'
+  %br
+  = form.input :region, :label => 'Region', :hint => 'Franchises are grouped for display by region.'
+  %br
+  = form.input :email, :label => 'Email'
+  %br
+  = form.input :phone1, :label => 'Phone 1'
+  %br
+  = form.input :phone2, :label => 'Phone 2'
+  %br
+  = form.input :fax, :label => 'Fax'
+  %br
+  = form.input :url, :label => 'Web URL', :hint => 'Website address (http://www.example.com/)'
+  %br
+  = form.input :map_url, :label => 'Map URL', :hint => 'An external mapping site URL (http://maps.google.com/...)'
+  %br
+  = form.input :photo_url, :label => 'Photo URL', :hint => 'The URL that points to an image of this location (http://example.com/site.jpg).'
+  %br
+  = form.input :years_in_business, :label => 'Years in Business', :hint => 'A simple number like 10'
+  %br
+  = form.input :service_areas, :label => 'Service Areas', :hint => 'A comma separated list of counties, cities, etc'
+  %br
+  = form.input :hours_of_operation, :label => 'Hours', :hint => 'Text describing the full hours of operation of this location.'
+  %br
+  = form.input :additional_info, :label => 'Extra Info', :hint => "Any info that doesn't fit cleanly into the fields above.", :input_html => { :cols => 75, :rows => 10 }
+  %br
+

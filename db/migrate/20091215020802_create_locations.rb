@@ -4,6 +4,7 @@ class CreateLocations < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :street
+      t.string :street2
       t.string :city
       t.string :state
       t.string :zip

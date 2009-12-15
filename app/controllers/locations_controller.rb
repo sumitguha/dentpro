@@ -1,8 +1,17 @@
 class LocationsController < ApplicationController
+
+  # Don't allow anyone but logged in user (admin)
+  # to visit new, create, edit, update, destroy
+  before_filter :authenticate, :except => [:index, :show]
+
   # GET /locations
   # GET /locations.xml
   def index
-    @locations = Location.all
+    @locations = Location.find(:all, :order => 'state, name ASC')
+    @states = []
+    @locations.each do |loc|
+      @states << loc.state unless loc.state.nil?
+    end
 
     respond_to do |format|
       format.html # index.html.erb
