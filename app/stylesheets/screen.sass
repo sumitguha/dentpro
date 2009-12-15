@@ -6,6 +6,8 @@
 @import blueprint
 // Import the non-default scaffolding module.
 @import blueprint/modules/scaffolding.sass
+// Import the non-default interaction module which provides colors and success error coloring.
+@import blueprint/modules/interaction.sass
 
 @import compass/utilities.sass
 
@@ -54,6 +56,7 @@ body.bp
 
   #container
     +container
+    +blueprint-interaction
     background= !content_background_color
 
   #header, #footer, #nav
@@ -102,6 +105,16 @@ body.bp
       +append(1)
       +column(!blueprint_content_columns)
       +last
+
+      #flashes
+        :margin-bottom 2em
+        .flash-wrapper
+          .flash
+            :margin-top 0
+            :margin-bottom 1em
+            :padding 0 .7em
+            p
+              :margin 0.25em 0 0.25em 0
 
       #contact-address
         +no-bullets
