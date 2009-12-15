@@ -1,1 +1,9 @@
 %h1 Admin
+
+%h2 Manage Locations
+%p If you are logged in as an admin user you may manage the locations database. To edit or delete a location visit the location's detail page and you will see links to perform those actions.  All changes or deletions are reflected immediately and cannot be undone.
+
+- if signed_in?
+  = link_to 'Create new location', new_location_path
+  %br
+  = link_to 'Show all locations', locations_path

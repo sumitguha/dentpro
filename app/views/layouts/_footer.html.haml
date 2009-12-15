@@ -3,7 +3,7 @@
     = raw "Copyright &copy; #{current_year_range(2009)} #{link_to 'DentPro', 'http://www.dentpro.com'}, All Rights Reserved"
     %br
     - if current_user
-      = "#{current_user.email} | #{link_to 'Logout', sign_out_path}"
+      = "#{current_user.email} | #{link_to 'Admin Page', admin_path} | #{link_to 'Logout', sign_out_path}"
     - else
       = link_to 'Admin Login', sign_in_path
 
