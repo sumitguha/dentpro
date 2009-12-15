@@ -1,0 +1,54 @@
+<h1>Where We Are</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Street</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Region</th>
+    <th>Email</th>
+    <th>Phone1</th>
+    <th>Phone2</th>
+    <th>Fax</th>
+    <th>Url</th>
+    <th>Map url</th>
+    <th>Photo url</th>
+    <th>Years in business</th>
+    <th>Service areas</th>
+    <th>Hours of operation</th>
+    <th>Additional info</th>
+  </tr>
+
+<% @locations.each do |location| %>
+  <tr>
+    <td><%=h location.name %></td>
+    <td><%=h location.description %></td>
+    <td><%=h location.street %></td>
+    <td><%=h location.city %></td>
+    <td><%=h location.state %></td>
+    <td><%=h location.zip %></td>
+    <td><%=h location.region %></td>
+    <td><%=h location.email %></td>
+    <td><%=h location.phone1 %></td>
+    <td><%=h location.phone2 %></td>
+    <td><%=h location.fax %></td>
+    <td><%=h location.url %></td>
+    <td><%=h location.map_url %></td>
+    <td><%=h location.photo_url %></td>
+    <td><%=h location.years_in_business %></td>
+    <td><%=h location.service_areas %></td>
+    <td><%=h location.hours_of_operation %></td>
+    <td><%=h location.additional_info %></td>
+    <td><%= link_to 'Show', location %></td>
+    <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    <td><%= link_to 'Destroy', location, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New location', new_location_path %>

@@ -6,6 +6,8 @@ ActionController::Routing::Routes.draw do |map|
     m.what_we_do '/what_we_do', :action => 'what_we_do', :conditions => { :method => :get }
   end
 
+  map.resources :locations
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -48,4 +50,7 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+
 end
+
+
