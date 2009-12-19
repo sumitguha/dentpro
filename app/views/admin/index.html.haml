@@ -7,3 +7,13 @@
   = link_to 'Create new location', new_location_path
   %br
   = link_to 'Show all locations', locations_path
+
+%br.clear
+%br
+
+%h2 Customer Satisfaction Survey Results
+%p The following links will take you to the customer satisfaction survey results pages where you can view a summary chart of the results, or access a spreadsheet of raw data.  You may be asked to provide the proper username and password for the Google Docs account containing the survey data.
+
+%ul
+  %li= link_to("Survey Chart", 'http://spreadsheets.google.com/gform?key=tS6sJCk6Mf3ppj2RsWk_UdQ&hl=en#chart', :target => '_blank')
+  %li= link_to("Survey Raw Data", 'http://spreadsheets.google.com/ccc?key=0As1MbbJOaoH5dFM2c0pDazZNZjNwcGoyUnNXa19VZFE&hl=en', :target => '_blank')
