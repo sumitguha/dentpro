@@ -14,8 +14,24 @@ config.action_view.debug_rjs                         = true
 config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
-config.action_mailer.raise_delivery_errors = false
+config.action_mailer.raise_delivery_errors = true
 
 # clearance
 HOST = "localhost"
 
+# email config
+DENTPRO_EMAIL_RECIPIENTS = 'glenn@rempe.us'
+DENTPRO_EMAIL_FROM = 'dentpro@rempe.us'
+
+ActionMailer::Base.smtp_settings = {
+  :enable_starttls_auto => true,
+  :address  => "smtp.gmail.com",
+  :port  => 587,
+  :user_name  => DENTPRO_EMAIL_FROM,
+  :password  => "1108will",
+  :authentication  => :login
+}
+
+# turn off the rails asset caching in dev when editing in 'css edit' otherwise
+# the page you are modifying is constantly changing under you due to rails' cache busting.
+#ENV["RAILS_ASSET_ID"] = ''

@@ -6,6 +6,12 @@ ActionController::Routing::Routes.draw do |map|
     m.what_we_do '/what_we_do', :action => 'what_we_do', :conditions => { :method => :get }
   end
 
+  map.with_options :controller => 'quotes' do |m|
+    m.quote '/quote', :action => 'index'
+    m.quote_review '/quote/review', :action => 'review'
+    m.quote_confirm '/quote/confirm', :action => 'confirm'
+  end
+
   map.resources :locations
 
   map.with_options :controller => 'admin' do |m|

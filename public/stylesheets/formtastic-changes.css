@@ -1,3 +1,5 @@
+/* @override http://localhost:3000/stylesheets/formtastic-changes.css */
+
 /* -------------------------------------------------------------------------------------------------
 
 Load this stylesheet after formtastic.css in your layouts to override the CSS to suit your needs.
@@ -9,4 +11,52 @@ form.formtastic fieldset ol li p.inline-hints { color:#333; }
 
 --------------------------------------------------------------------------------------------------*/
 
-//form.formtastic fieldset ol li p.inline-hints { color: blue; margin:0.5em 0 0 25%; }
+/* quote form overrides */
+
+form.formtastic.quote fieldset ol li {
+  display: block;
+}
+
+form.formtastic.quote fieldset ol li.select label {
+  width: 175px;
+}
+
+form.formtastic.quote li#quote_parts_input fieldset legend label {
+  display: none;
+}
+
+form.formtastic.quote li#quote_parts_input fieldset ol {
+  padding-left: 0px;
+}
+
+form.formtastic.quote li#quote_parts_input fieldset ol li label {
+  width: 200px;
+}
+
+form.formtastic.quote fieldset.buttons {
+  padding: 0px;
+}
+
+/* customer form overrides */
+
+form.formtastic.customer fieldset ol li label {
+  width: 100px;
+}
+
+form.formtastic.customer p.inline-hints {
+  /* same as the width of the label set above */
+  margin-left: 100px;
+}
+
+form.formtastic.customer li.radio fieldset ol {
+	padding-left: 100px;
+}
+
+form.formtastic.customer li.radio fieldset ol li {
+  display: block;
+}
+
+form.formtastic.customer fieldset.buttons {
+  padding: 0px;
+}
+

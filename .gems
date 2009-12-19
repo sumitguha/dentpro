@@ -1,4 +1,4 @@
 haml --version '>= 2.2.15'
 clearance --version '0.8.4'
 formtastic --version '>= 0.9.7'
-
+validatable --version '>= 1.6.7'

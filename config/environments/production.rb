@@ -22,11 +22,24 @@ config.action_view.cache_template_loading            = true
 # config.action_controller.asset_host = "http://assets.example.com"
 
 # Disable delivery errors, bad email addresses will be ignored
-# config.action_mailer.raise_delivery_errors = false
+config.action_mailer.raise_delivery_errors = true
 
 # Enable threaded mode
 # config.threadsafe!
 
 # clearance
 HOST = "dentpro-dev.heroku.com"
+
+# email config
+DENTPRO_EMAIL_RECIPIENTS = 'sumit@dentpro.com'
+DENTPRO_EMAIL_FROM = 'donotreply@dentpro.com'
+
+ActionMailer::Base.smtp_settings = {
+  :address  => "smtp.dentpro.com",
+  :port  => 25,
+  :user_name  => DENTPRO_EMAIL_FROM,
+  :password  => "1108will",
+  :authentication  => :plain
+}
+
 

@@ -1,0 +1,62 @@
+%div.success
+  %b Our Promise
+  %br
+  %p DentPro professionals will schedule the repairs and service at a time that is convenient to you wherever you park your auto, whether at home or at your place of work. We are committed to quality service done efficiently and economically, that's our promise to all our customers.
+
+%br.clear
+
+- if @customer && @customer.valid?
+  %h4 Your Info
+  %p
+    = "#{@customer.name}"
+    %br
+    = "#{@customer.address}"
+    - unless @customer.address2.blank?
+      %br
+      = "#{@customer.address2}"
+    %br
+    = "#{@customer.city}, #{@customer.state} #{@customer.zip}"
+    %br
+    %br
+    = "#{@customer.email}"
+    %br
+    = "#{@customer.phone}"
+
+
+- unless @quote && @quote.dent_4.blank? && @quote.dent_3.blank? && @quote.dent_2.blank? && @quote.dent_1.blank?
+  %h4 Dent Repairs
+  %ul
+    - unless @quote.dent_4.blank?
+      %li= "4\" Dents x #{@quote.dent_4}"
+    - unless @quote.dent_3.blank?
+      %li= "3\" Dents x #{@quote.dent_3}"
+    - unless @quote.dent_2.blank?
+      %li= "2\" Dents x #{@quote.dent_2}"
+    - unless @quote.dent_1.blank?
+      %li= "1\" Dents x #{@quote.dent_1}"
+
+- unless @quote && @quote.bumper_repair.blank? && @quote.side_mirror_repair.blank? && @quote.paint_touch_up.blank?
+  %h4 Color Touch Ups
+  %ul
+    - unless @quote.bumper_repair.blank?
+      %li= "Bumper Repair x #{@quote.bumper_repair}"
+    - unless @quote.side_mirror_repair.blank?
+      %li= "Side Mirror Repair x #{@quote.side_mirror_repair}"
+    - unless @quote.paint_touch_up.blank?
+      %li= "Paint Touch Up x #{@quote.paint_touch_up}"
+
+%h4 Parts Affected
+- unless @parts.blank?
+  %p= "#{@parts}"
+- else
+  %p None Selected
+
+%h4 Total Estimated Cost
+
+-if @surcharge_message
+  %p
+    %b.orange= @surcharge_message
+
+%p#price
+  %b= number_to_currency(@price)
+

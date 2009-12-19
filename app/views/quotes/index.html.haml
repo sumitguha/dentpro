@@ -1,0 +1,23 @@
+%h1 Get a Quote!
+
+- semantic_form_for :quote, :url => quote_review_path do |form|
+  - form.inputs do
+
+    %h3 Select the number and size of dents to repair:
+    = form.input :dent_1, :label => "1\" Dent - #{number_to_currency(@prices[:dent_1])}", :as => :select, :collection => @dents_collection, :required => false
+    = form.input :dent_2, :label => "2\" Dent - #{number_to_currency(@prices[:dent_2])}", :as => :select, :collection => @dents_collection, :required => false
+    = form.input :dent_3, :label => "3\" Dent - #{number_to_currency(@prices[:dent_3])}", :as => :select, :collection => @dents_collection, :required => false
+    = form.input :dent_4, :label => "4\" Dent - #{number_to_currency(@prices[:dent_4])}", :as => :select, :collection => @dents_collection, :required => false
+
+    %h3 Select the type of Colors service you will need:
+    = form.input :bumper_repair, :label => "Bumper Repair - #{number_to_currency(@prices[:bumper_repair])}", :as => :select, :collection => %w(1 2), :required => false
+    = form.input :side_mirror_repair, :label => "Side Mirror Repair - #{number_to_currency(@prices[:side_mirror_repair])}", :as => :select, :collection => %w(1 2), :required => false
+    = form.input :paint_touch_up, :label => "Paint Touch Up - #{number_to_currency(@prices[:paint_touch_up])}", :as => :select, :collection => @dents_collection, :required => false
+
+    %h3 Select the locations for dent repair and color service:
+    = form.input :parts, :as => :check_boxes, :collection => @parts_collection.map! {|h| h.humanize }, :required => false
+
+  %br.clear
+
+  - form.buttons do
+    = form.commit_button "View My Estimate"
