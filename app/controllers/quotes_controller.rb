@@ -22,10 +22,10 @@ class QuotesController < ApplicationController
       @quote = Quote.new(session["quote"])
     end
 
-    @parts = pretty_parts
-    @price = calculate_price
     display_surcharge_message?
 
+    @parts = pretty_parts
+    @price = calculate_price
     @customer = Customer.new(session["customer"]) if session["customer"]
 
     if @price && @price == 0.00
@@ -144,11 +144,11 @@ class QuotesController < ApplicationController
       # display the surcharge warning message if
       # one of the following was checked
       if @quote.parts &&
-         ( @quote.parts.include?("trunk_lid") ||
-           @quote.parts.include?("hood")      ||
-           @quote.parts.include?("roof")      ||
-           @quote.parts.include?("tailgate")  ||
-           @quote.parts.include?("lift_gate") )
+         ( @quote.parts.include?("trunk_lid".humanize) ||
+           @quote.parts.include?("hood".humanize)      ||
+           @quote.parts.include?("roof".humanize)      ||
+           @quote.parts.include?("tailgate".humanize)  ||
+           @quote.parts.include?("lift_gate".humanize) )
         @surcharge_message = "Important Note : Prices may vary depending on the location and or severity of the damage."
       end
     end
