@@ -12,6 +12,7 @@ class LocationsController < ApplicationController
     @locations.each do |loc|
       @states << loc.state unless loc.state.nil?
     end
+    @states.uniq!
 
     respond_to do |format|
       format.html # index.html.erb

@@ -79,5 +79,7 @@
 - if signed_in?
   = "#{link_to('Edit', edit_location_path(@location))} |"
   = "#{link_to 'Destroy', @location, :confirm => 'Are you sure?', :method => :delete} |"
+  = "#{link_to 'Create new location', new_location_path} |"
 
 = link_to('Back', locations_path)
+
