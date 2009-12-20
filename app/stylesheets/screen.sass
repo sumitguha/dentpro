@@ -121,6 +121,39 @@ body.bp
             p
               :margin 0.25em 0 0.25em 0
 
+      #home
+
+        .left
+          +column((!blueprint_content_columns / 2) - 1)
+          +prepend(1)
+          +append(1)
+          padding: 0px
+          +box
+          background: #fff
+          img
+            width: 250px
+            margin: 0px
+            padding: 1px
+
+        .right
+          +column((!blueprint_content_columns / 2) - 1)
+          +prepend(1)
+          +append(1)
+          +last
+          padding: 0px
+          +box
+          background: #fff
+          img
+            width: 250px
+            margin: 0px
+            padding: 1px
+
+        .row
+          text-align: center
+          a
+            +hover-link
+            font-size: 2em
+
       #contact-address
         +no-bullets
 

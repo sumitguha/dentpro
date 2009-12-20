@@ -1,3 +1,36 @@
-%h1 Home
+#home
 
-%p link for dent defense:  http://dentpro.com/images/imgDentDefense.jpg
+  %h2 DentPro was founded in 1991 in the San Francisco Bay area and has grown with franchises now spread across the West.  Our philosophy is to focus on <em>Quality Paintless Dent Repair</em>, <em>Service</em> and <em>Professionalism</em>.
+
+  #one.row
+    %div.left
+      %a{:href => what_we_do_url}
+        %img{:src => "/images/imgDentRepair1.jpg", :alt => "What We Do"}
+      %br
+      = link_to("What We Do", what_we_do_url)
+    %div.right
+      %a{:href => quote_url}
+        %img{:src => "/images/contracts.jpg", :alt => "Get a Quote!"}
+      %br
+      = link_to("Get a Quote!", quote_url)
+
+  #two.row
+    %div.left
+      %a{:href => locations_url}
+        %img{:src => "/images/home_grid_map.jpg", :alt => "Where We Are"}
+      %br
+      = link_to("Where We Are", locations_url)
+    %div.right
+      %a{:href => who_we_are_url}
+        %img{:src => "/images/imgFranchise.jpg", :alt => "Who We Are"}
+      %br
+      = link_to("Who We Are", who_we_are_url)
+
+  %br.clear
+
+  #three.row
+    %div
+      %a#dent-defense{:href => 'http://www.dentdefense.com/', :target => '_blank'}
+        %img{:src => "/images/imgDentDefense.jpg", :alt => "Dent Defense"}
+      %p.large.bold The Ultimate Prepaid Paintless Dent Removal Plan
+
