@@ -30,3 +30,6 @@ config.action_mailer.delivery_method = :test
 # clearance
 HOST = "localhost"
 
+DENTPRO_EMAIL_RECIPIENTS = 'glenn@rempe.us'
+DENTPRO_EMAIL_FROM = 'dentpro@rempe.us'
+
