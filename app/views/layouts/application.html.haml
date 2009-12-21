@@ -40,3 +40,8 @@
       #footer
         = render :partial => "layouts/footer"
 
+      -# load google JS immediately before the end body tag
+      -# so it does not interfere with page render time.
+      -# unless request.host.scan('dentpro.com').empty?
+      = render :partial => "layouts/ga"
+
