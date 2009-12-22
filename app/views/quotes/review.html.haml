@@ -14,7 +14,7 @@
     %b.red * Required fields
 
   - semantic_form_for :customer, :url => quote_confirm_path do |form|
-    -if @customer.errors
+    -if @customer && @customer.errors
       = form.error_messages
       %br
     - form.inputs do

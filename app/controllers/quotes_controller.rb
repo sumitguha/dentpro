@@ -155,12 +155,16 @@ class QuotesController < ApplicationController
 
     # clean up and display the array of parts in a nicer way
     def pretty_parts
-      parts = @quote.parts
-      parts = parts.delete_if {|x| x == "" || x == " "} # delete empty strings
-      parts.compact! # remove nils
-      parts.sort! # sort the array
-      parts.map! {|h| h.humanize }
-      parts = parts.join(", ") # return a comma + space separated string of parts
+      if @quote && !@quote.parts.blank?
+        parts = @quote.parts
+        parts = parts.delete_if {|x| x == "" || x == " "} # delete empty strings
+        parts.compact! # remove nils
+        parts.sort! # sort the array
+        parts.map! {|h| h.humanize }
+        parts = parts.join(", ") # return a comma + space separated string of parts
+      else
+        parts = nil
+      end
     end
 
 end
