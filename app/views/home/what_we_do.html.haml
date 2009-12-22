@@ -2,6 +2,13 @@
 
 #what-we-do
 
+  %ul
+    %li= "#{link_to("Paintless Dent Repair", what_we_do_url(:anchor => 'paintless_dent_repair'))}"
+    %li= "#{link_to("Paint Repair", what_we_do_url(:anchor => 'paint_repair'))}"
+
+  %br.clear
+
+  %a{:name => 'paintless_dent_repair'}
   %h2 Paintless Dent Repair
 
   %p
@@ -101,8 +108,13 @@
     %br
     Contact us and you'll receive a prompt return call to set an appointment time and place. The DentPro technician will meet you, inspect the work to be performed and give a final estimate before doing the repair.
 
-  %h2 Paint Repair
 
+  %span= "#{link_to("Back to Top", what_we_do_url(:anchor => 'top'))}"
+  %br.clear
+  %br
+
+  %a{:name => 'paint_repair'}
+  %h2 Paint Repair
 
   %p
     %img.thumb{:src => '/images/imgWhereItWorks.jpg', :alt => 'Where it Works'}
@@ -143,3 +155,6 @@
           %li Satisfaction 100% guaranteed
 
 
+  %span= "#{link_to("Back to Top", what_we_do_url(:anchor => 'top'))}"
+  %br.clear
+  %br
