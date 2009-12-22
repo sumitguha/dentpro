@@ -74,7 +74,7 @@ body.bp
       +hover-link
 
   #header
-    background: url(/images/newHeader.jpg) no-repeat
+    background: url(/images/newHeader.jpg)
 
     #header-left
       +column(!blueprint_grid_columns / 2)
@@ -82,20 +82,21 @@ body.bp
       a
         img
           :margin-top 15px
-          :margin-left 15px
+          :margin-left 20px
 
     #header-right
       +column(!blueprint_grid_columns / 2)
       +last
       #phone
         float: right
-        :margin-right 15px
+        :margin-right 20px
 
   #nav
     margin-top: 0.5em
     margin-bottom: 2em
     ul
       +horizontal-list
+      margin-left: 80px
       li
         font-size: 1.2em
         font-weight: bold
@@ -208,7 +209,7 @@ body.bp
     #footer-right
       +column(!blueprint_grid_columns / 2, true)
       #aaatext
-        +column(5)
+        +column(7)
         text-align: right
       #aaa
         +column(3, true)
