@@ -130,36 +130,45 @@ body.bp
 
       #home
 
-        .left
-          +column((!blueprint_content_columns / 2) - 1)
+        img.grid
+          width: 160px
+          margin: 0px
+          padding: 1px
+
+        .col1
+          +column((!blueprint_content_columns / 4) - 1)
           +prepend(1)
-          +append(1)
           padding: 0px
           +box
           background: #fff
-          img
-            width: 250px
-            margin: 0px
-            padding: 1px
 
-        .right
-          +column((!blueprint_content_columns / 2) - 1)
+        .col2
+          +column((!blueprint_content_columns / 4) - 1)
           +prepend(1)
-          +append(1)
+          padding: 0px
+          +box
+          background: #fff
+
+        .col3
+          +column((!blueprint_content_columns / 4) - 1)
+          +prepend(1)
+          padding: 0px
+          +box
+          background: #fff
+
+        .col4
+          +column((!blueprint_content_columns / 4) - 1)
+          +prepend(1)
           +last
           padding: 0px
           +box
           background: #fff
-          img
-            width: 250px
-            margin: 0px
-            padding: 1px
 
         .row
           text-align: center
           a
             +hover-link
-            font-size: 2em
+            font-size: 1.5em
 
       #quote-review
         abbr
