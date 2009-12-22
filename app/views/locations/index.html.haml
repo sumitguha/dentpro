@@ -2,9 +2,8 @@
 
 - if signed_in?
   = link_to 'Create new location', new_location_path
-
-%br.clear
-%br
+  %br.clear
+  %br
 
 -# Makes use of the numbersToWords plugin and its .to_english method:
 -# http://github.com/accidental/numbersToWords
@@ -12,15 +11,28 @@
 - if @states && @locations
   %p= "DentPro currently has #{@locations.length.to_english} franchise locations in #{@states.length.to_english} states across America.  If you are looking for our headquarters location in Concord, CA please see the #{link_to 'contact us', contact_us_path} page."
 
-  - @states.each do |state|
+  #states-list
+    %p
+      States we do business in :
+      - @states.each do |state|
+        = "#{link_to("#{state}", locations_url(:anchor => "#{state}"))} &nbsp;"
 
-    %h2= state
+  %br.clear
 
-    - @locations.each do |location|
-      - if location.state == state
-        %h3= link_to location.name, location
+  #locations
+    - @states.each do |state|
 
-    %br
+      %a{:name => "#{state}"}
+      %h2= state
+
+      - @locations.each do |location|
+        - if location.state == state
+          %h3= link_to location.name, location
+
+      %br
+      %span= "#{link_to("Back to Top", locations_url(:anchor => 'top'))}"
+      %br.clear
+      %br
 
 - else
   %p Sorry no locations found.
