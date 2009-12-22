@@ -67,7 +67,7 @@ class QuotesController < ApplicationController
       session["quote"] = nil
       session["customer"] = nil
     else
-      flash[:error] = "Some required information appears to be missing.  Please try again."
+      flash[:error] = "Some required information appears to be missing.  Please see the specific errors below."
       redirect_to quote_review_path
     end
 

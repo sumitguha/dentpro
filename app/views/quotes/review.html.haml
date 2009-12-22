@@ -1,36 +1,43 @@
-%h1 Quote Review & Appointment Request
+#quote-review
 
-%h3 Step 1 : Review Your Quote
+  %h1 Quote Review & Appointment Request
 
-= render :partial => "/quotes/summary"
+  %h3 Step 1 : Review Your Quote
 
-%p= link_to '<< I want to modify my quote', quote_path
+  = render :partial => "/quotes/summary"
 
-%h3 Step 2 : Provide Your Contact Information
+  %p= link_to '<< I want to modify my quote', quote_path
 
-- semantic_form_for :customer, :url => quote_confirm_path do |form|
-  - form.inputs do
-    = form.input :name, :required => true
-    = form.input :title, :required => false
-    = form.input :company, :required => false
-    = form.input :phone, :required => true, :hint => "(XXX) XXX-XXXX"
-    = form.input :email, :required => true
-    = form.input :address, :required => true
-    = form.input :address2, :required => false
-    = form.input :city, :required => true
-    = form.input :state, :required => true
-    = form.input :zip, :required => true
-    %br.clear
-    = form.input :service_area, :label => "Preferred Region", :as => :select, :collection => @service_area_collection, :required => false, :hint => 'Please indicate the state you would like the service performed in.'
-    = form.input :day_of_week, :label => "Preferred Day", :as => :radio, :collection => @days_of_week_collection, :required => false, :hint => 'Please indicate which day of the week is best for you.'
-    = form.input :time_of_day, :label => "Preferred Time", :as => :radio, :collection => %w(AM PM), :required => false, :hint => 'Please indicate which time of day is best for us to contact you.'
+  %h3 Step 2 : Provide Your Contact Information
 
-  %p * Required field
-  %br
-  %br
+  %p
+    %b.red * Required fields
 
-  %h3 Step 3 : Submit your quote to our DentPro technicians
+  - semantic_form_for :customer, :url => quote_confirm_path do |form|
+    -if @customer.errors
+      = form.error_messages
+      %br
+    - form.inputs do
+      = form.input :name, :required => true
+      = form.input :title, :required => false
+      = form.input :company, :required => false
+      = form.input :phone, :required => true, :hint => "(XXX) XXX-XXXX"
+      = form.input :email, :required => true
+      = form.input :address, :required => true
+      = form.input :address2, :required => false
+      = form.input :city, :required => true
+      = form.input :state, :required => true
+      = form.input :zip, :required => true
+      %br.clear
+      = form.input :service_area, :label => "Preferred Region", :as => :select, :collection => @service_area_collection, :required => false, :hint => 'Please indicate the state you would like the service performed in.'
+      = form.input :day_of_week, :label => "Preferred Day", :as => :radio, :collection => @days_of_week_collection, :required => false, :hint => 'Please indicate which day of the week is best for you.'
+      = form.input :time_of_day, :label => "Preferred Time", :as => :radio, :collection => %w(AM PM), :required => false, :hint => 'Please indicate which time of day is best for us to contact you.'
 
-  - form.buttons do
-    = form.commit_button "Submit Quote & Appointment Request!"
+    %br
+    %br
+
+    %h3 Step 3 : Submit your quote to our DentPro technicians
+
+    - form.buttons do
+      = form.commit_button "Submit Quote & Appointment Request!"
 

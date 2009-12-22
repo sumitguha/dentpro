@@ -60,3 +60,17 @@ form.formtastic.customer fieldset.buttons {
   padding: 0px;
 }
 
+/* errorExplanation overrides */
+
+form.formtastic #errorExplanation {
+    color: red;
+}
+
+form.formtastic #errorExplanation h2 {
+    color: red;
+    font-size: 1.5em;
+}
+
+form.formtastic #errorExplanation ul {
+    margin-top: 1em;
+}
