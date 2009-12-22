@@ -667,15 +667,16 @@ body.bp {
         overflow-x: hidden; }
       /* line 211, ../../../app/stylesheets/screen.sass */
       body.bp #footer #footer-right #aaatext {
+        padding-left: 40px;
         display: inline;
         float: left;
         margin-right: 15px;
-        width: 265px;
+        width: 225px;
         text-align: right; }
         /* line 101, ../../../vendor/gems/compass-0.8.17/frameworks/blueprint/stylesheets/blueprint/modules/_grid.sass */
         * html body.bp #footer #footer-right #aaatext {
           overflow-x: hidden; }
-      /* line 214, ../../../app/stylesheets/screen.sass */
+      /* line 215, ../../../app/stylesheets/screen.sass */
       body.bp #footer #footer-right #aaa {
         display: inline;
         float: left;
