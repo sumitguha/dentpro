@@ -75,3 +75,7 @@ blockquote {
 /* line 82, ../../../vendor/gems/compass-0.8.17/frameworks/blueprint/stylesheets/blueprint/_print.sass */
 .hide {
   display: none; }
+
+/* line 5, ../../../app/stylesheets/print.sass */
+.noprint {
+  display: none; }

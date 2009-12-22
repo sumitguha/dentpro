@@ -27,17 +27,17 @@
 
         #content-inner
 
-          #nav
+          #nav.noprint
             = render :partial => "layouts/nav"
 
-          #flashes
+          #flashes.noprint
             = render :partial => "layouts/flashes"
 
           %br.clear
 
           = yield
 
-      #footer
+      #footer.noprint
         = render :partial => "layouts/footer"
 
       -# load google JS immediately before the end body tag
