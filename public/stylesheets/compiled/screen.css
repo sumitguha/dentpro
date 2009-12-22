@@ -536,17 +536,20 @@ body.bp {
       * html body.bp #content #content-inner {
         overflow-x: hidden; }
       /* line 117, ../../../app/stylesheets/screen.sass */
+      body.bp #content #content-inner h1, body.bp #content #content-inner h2, body.bp #content #content-inner h3, body.bp #content #content-inner h4 {
+        color: #333333; }
+      /* line 120, ../../../app/stylesheets/screen.sass */
       body.bp #content #content-inner #flashes {
         margin-bottom: 2em; }
-        /* line 120, ../../../app/stylesheets/screen.sass */
+        /* line 123, ../../../app/stylesheets/screen.sass */
         body.bp #content #content-inner #flashes .flash-wrapper .flash {
           margin-top: 0;
           margin-bottom: 1em;
           padding: 0 .7em; }
-          /* line 124, ../../../app/stylesheets/screen.sass */
+          /* line 127, ../../../app/stylesheets/screen.sass */
           body.bp #content #content-inner #flashes .flash-wrapper .flash p {
             margin: 0.25em 0 0.25em 0; }
-      /* line 129, ../../../app/stylesheets/screen.sass */
+      /* line 132, ../../../app/stylesheets/screen.sass */
       body.bp #content #content-inner #home .left {
         display: inline;
         float: left;
@@ -562,12 +565,12 @@ body.bp {
         /* line 101, ../../../vendor/gems/compass-0.8.17/frameworks/blueprint/stylesheets/blueprint/modules/_grid.sass */
         * html body.bp #content #content-inner #home .left {
           overflow-x: hidden; }
-        /* line 136, ../../../app/stylesheets/screen.sass */
+        /* line 139, ../../../app/stylesheets/screen.sass */
         body.bp #content #content-inner #home .left img {
           width: 250px;
           margin: 0px;
           padding: 1px; }
-      /* line 141, ../../../app/stylesheets/screen.sass */
+      /* line 144, ../../../app/stylesheets/screen.sass */
       body.bp #content #content-inner #home .right {
         display: inline;
         float: left;
@@ -584,22 +587,22 @@ body.bp {
         /* line 101, ../../../vendor/gems/compass-0.8.17/frameworks/blueprint/stylesheets/blueprint/modules/_grid.sass */
         * html body.bp #content #content-inner #home .right {
           overflow-x: hidden; }
-        /* line 149, ../../../app/stylesheets/screen.sass */
+        /* line 152, ../../../app/stylesheets/screen.sass */
         body.bp #content #content-inner #home .right img {
           width: 250px;
           margin: 0px;
           padding: 1px; }
-      /* line 154, ../../../app/stylesheets/screen.sass */
+      /* line 157, ../../../app/stylesheets/screen.sass */
       body.bp #content #content-inner #home .row {
         text-align: center; }
-        /* line 156, ../../../app/stylesheets/screen.sass */
+        /* line 159, ../../../app/stylesheets/screen.sass */
         body.bp #content #content-inner #home .row a {
           text-decoration: none;
           font-size: 2em; }
           /* line 4, ../../../vendor/gems/compass-0.8.17/frameworks/compass/stylesheets/compass/utilities/links/_hover_link.sass */
           body.bp #content #content-inner #home .row a:hover {
             text-decoration: underline; }
-      /* line 161, ../../../app/stylesheets/screen.sass */
+      /* line 164, ../../../app/stylesheets/screen.sass */
       body.bp #content #content-inner #quote-review abbr {
         color: red;
         font-weight: bold;
@@ -608,21 +611,21 @@ body.bp {
       body.bp #content #content-inner #contact-address li {
         list-style-type: none;
         margin-left: 0px; }
-      /* line 169, ../../../app/stylesheets/screen.sass */
+      /* line 172, ../../../app/stylesheets/screen.sass */
       body.bp #content #content-inner #contact-photo {
         margin-right: 0;
         align: right; }
-      /* line 173, ../../../app/stylesheets/screen.sass */
+      /* line 176, ../../../app/stylesheets/screen.sass */
       body.bp #content #content-inner #contact-map {
         margin-top: 2em; }
-      /* line 176, ../../../app/stylesheets/screen.sass */
+      /* line 179, ../../../app/stylesheets/screen.sass */
       body.bp #content #content-inner #price {
         color: green;
         font-size: 3em; }
-      /* line 180, ../../../app/stylesheets/screen.sass */
+      /* line 183, ../../../app/stylesheets/screen.sass */
       body.bp #content #content-inner #metals {
         clear: both; }
-  /* line 183, ../../../app/stylesheets/screen.sass */
+  /* line 186, ../../../app/stylesheets/screen.sass */
   body.bp #footer {
     height: 7em;
     margin-top: 2em;
@@ -630,7 +633,7 @@ body.bp {
     padding-top: 1em;
     background: #08234b;
     border-top: 5px solid #7a8ca4; }
-    /* line 190, ../../../app/stylesheets/screen.sass */
+    /* line 193, ../../../app/stylesheets/screen.sass */
     body.bp #footer p {
       color: #cccccc;
       font-size: 11px;
@@ -639,11 +642,11 @@ body.bp {
       margin-top: 0px;
       margin-bottom: 0px;
       margin-left: 10px; }
-      /* line 198, ../../../app/stylesheets/screen.sass */
+      /* line 201, ../../../app/stylesheets/screen.sass */
       body.bp #footer p a {
         color: #cccccc;
         font-size: 11px; }
-    /* line 202, ../../../app/stylesheets/screen.sass */
+    /* line 205, ../../../app/stylesheets/screen.sass */
     body.bp #footer #footer-left {
       display: inline;
       float: left;
@@ -652,7 +655,7 @@ body.bp {
       /* line 101, ../../../vendor/gems/compass-0.8.17/frameworks/blueprint/stylesheets/blueprint/modules/_grid.sass */
       * html body.bp #footer #footer-left {
         overflow-x: hidden; }
-    /* line 205, ../../../app/stylesheets/screen.sass */
+    /* line 208, ../../../app/stylesheets/screen.sass */
     body.bp #footer #footer-right {
       display: inline;
       float: left;
@@ -661,7 +664,7 @@ body.bp {
       /* line 101, ../../../vendor/gems/compass-0.8.17/frameworks/blueprint/stylesheets/blueprint/modules/_grid.sass */
       * html body.bp #footer #footer-right {
         overflow-x: hidden; }
-      /* line 207, ../../../app/stylesheets/screen.sass */
+      /* line 210, ../../../app/stylesheets/screen.sass */
       body.bp #footer #footer-right #aaatext {
         display: inline;
         float: left;
@@ -671,7 +674,7 @@ body.bp {
         /* line 101, ../../../vendor/gems/compass-0.8.17/frameworks/blueprint/stylesheets/blueprint/modules/_grid.sass */
         * html body.bp #footer #footer-right #aaatext {
           overflow-x: hidden; }
-      /* line 210, ../../../app/stylesheets/screen.sass */
+      /* line 213, ../../../app/stylesheets/screen.sass */
       body.bp #footer #footer-right #aaa {
         display: inline;
         float: left;
