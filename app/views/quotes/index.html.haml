@@ -4,15 +4,15 @@
   - form.inputs do
 
     %h3 Select the number and size of dents to repair:
-    = form.input :dent_1, :label => "1\" Dent - #{number_to_currency(@prices[:dent_1])}", :as => :select, :collection => @dents_collection, :required => false
-    = form.input :dent_2, :label => "2\" Dent - #{number_to_currency(@prices[:dent_2])}", :as => :select, :collection => @dents_collection, :required => false
-    = form.input :dent_3, :label => "3\" Dent - #{number_to_currency(@prices[:dent_3])}", :as => :select, :collection => @dents_collection, :required => false
-    = form.input :dent_4, :label => "4\" Dent - #{number_to_currency(@prices[:dent_4])}", :as => :select, :collection => @dents_collection, :required => false
+    = form.input :dent_1, :label => "<b>1\" Dent - #{number_to_currency(@prices[:dent_1])}</b>", :as => :select, :collection => @dents_collection, :required => false
+    = form.input :dent_2, :label => "<b>2\" Dent - #{number_to_currency(@prices[:dent_2])}</b>", :as => :select, :collection => @dents_collection, :required => false
+    = form.input :dent_3, :label => "<b>3\" Dent - #{number_to_currency(@prices[:dent_3])}</b>", :as => :select, :collection => @dents_collection, :required => false
+    = form.input :dent_4, :label => "<b>4\" Dent - #{number_to_currency(@prices[:dent_4])}</b>", :as => :select, :collection => @dents_collection, :required => false
 
     %h3 Select the type of Colors service you will need:
-    = form.input :bumper_repair, :label => "Bumper Repair - #{number_to_currency(@prices[:bumper_repair])}", :as => :select, :collection => %w(1 2), :required => false
-    = form.input :side_mirror_repair, :label => "Side Mirror Repair - #{number_to_currency(@prices[:side_mirror_repair])}", :as => :select, :collection => %w(1 2), :required => false
-    = form.input :paint_touch_up, :label => "Paint Touch Up - #{number_to_currency(@prices[:paint_touch_up])}", :as => :select, :collection => @dents_collection, :required => false
+    = form.input :bumper_repair, :label => "<b>Bumper Repair - #{number_to_currency(@prices[:bumper_repair])}</b>", :as => :select, :collection => %w(1 2), :required => false
+    = form.input :side_mirror_repair, :label => "<b>Side Mirror Repair - #{number_to_currency(@prices[:side_mirror_repair])}</b>", :as => :select, :collection => %w(1 2), :required => false
+    = form.input :paint_touch_up, :label => "<b>Paint Touch Up - #{number_to_currency(@prices[:paint_touch_up])}</b>", :as => :select, :collection => @dents_collection, :required => false
 
     %h3 Select the locations for dent repair and color service:
     = form.input :parts, :as => :check_boxes, :collection => @parts_collection.map! {|h| h.humanize }, :required => false
