@@ -23,7 +23,6 @@ class QuotesController < ApplicationController
     end
 
     display_surcharge_message?
-
     @parts = pretty_parts
     @price = calculate_price
     @customer = Customer.new(session["customer"]) if session["customer"]
@@ -52,7 +51,10 @@ class QuotesController < ApplicationController
     if session["quote"]
       @quote = Quote.new(session["quote"])
       @price = calculate_price
+
       @parts = pretty_parts
+      @quote.pretty_parts = @parts
+
       display_surcharge_message?
     end
 
@@ -119,9 +121,15 @@ class QuotesController < ApplicationController
       price += @quote.dent_1.to_i               * prices[:dent_1]
     end
 
-    def parts
-      %w(trunk_lid hood roof tailgate lift_gate extra_cab hatch front_bumper rear_bumper right_mirror left_mirror
-          left_front_fender left_front_door left_door left_right_door left_right_quarter_panel right_front_fender right_front_door right_door right_rear_door right_rear_quarter_panel)
+    # optionally pass in a string or symbol which is the hash key you want e.g. parts(:left) or parts("left")
+    # if no param passed the entire parts hash is returned.
+    def parts(location = nil)
+      parts = {
+        :left   => %w(left_mirror left_front_fender left_front_door left_door left_rear_door left_rear_quarter_panel),
+        :right  => %w(right_mirror  right_front_fender right_front_door right_door right_rear_door right_rear_quarter_panel),
+        :other  => %w(trunk_lid hood roof tailgate lift_gate extra_cab hatch front_bumper rear_bumper)
+      }
+      location.nil? ? parts : parts[location.to_sym]
     end
 
     def days_of_week
@@ -143,28 +151,43 @@ class QuotesController < ApplicationController
 
       # display the surcharge warning message if
       # one of the following was checked
-      if @quote.parts &&
-         ( @quote.parts.include?("trunk_lid".humanize) ||
-           @quote.parts.include?("hood".humanize)      ||
-           @quote.parts.include?("roof".humanize)      ||
-           @quote.parts.include?("tailgate".humanize)  ||
-           @quote.parts.include?("lift_gate".humanize) )
+      if @quote.parts_other && ( @quote.parts_other.include?("trunk_lid".humanize)    ||
+                                 @quote.parts_other.include?("hood".humanize)         ||
+                                 @quote.parts_other.include?("roof".humanize)         ||
+                                 @quote.parts_other.include?("tailgate".humanize)     ||
+                                 @quote.parts_other.include?("lift_gate".humanize)    ||
+                                 @quote.parts_other.include?("extra_cab".humanize)    ||
+                                 @quote.parts_other.include?("hatch".humanize)        ||
+                                 @quote.parts_other.include?("front_bumper".humanize) ||
+                                 @quote.parts_other.include?("rear_bumper".humanize)
+                               )
         @surcharge_message = "Important Note : Prices may vary depending on the location and or severity of the damage."
       end
     end
 
-    # clean up and display the array of parts in a nicer way
+    # merge, clean up and display the array of parts in a nicer way
     def pretty_parts
-      if @quote && !@quote.parts.blank?
-        parts = @quote.parts
-        parts = parts.delete_if {|x| x == "" || x == " "} # delete empty strings
-        parts.compact! # remove nils
-        parts.sort! # sort the array
-        parts.map! {|h| h.humanize }
-        parts = parts.join(", ") # return a comma + space separated string of parts
-      else
-        parts = nil
+
+      resp = nil
+
+      ["left", "right", "other"].each do |loc|
+        location = ("parts_" + loc).to_sym
+        if @quote && !@quote.send(location).blank?
+          parts = @quote.send(location)
+          parts = parts.delete_if {|x| x == "" || x == " "} # delete empty strings
+          parts.compact! # remove nils
+          parts.sort! # sort the array
+          parts.map! {|h| h.humanize }
+          parts = parts.join(", ") # comma + space separated string of parts
+          if resp.blank?
+            resp = parts unless parts.blank?
+          else
+            resp += (", " + parts) unless parts.blank?
+          end
+        end
       end
+
+      return resp
     end
 
 end

@@ -169,6 +169,19 @@ body.bp
             vertical-align: top
             font-size: 1.5em
 
+      #parts-left
+        +column((!blueprint_content_columns / 3) - 1)
+        +prepend(1)
+
+      #parts-other
+        +column((!blueprint_content_columns / 3) - 1)
+        +prepend(1)
+
+      #parts-right
+        +column((!blueprint_content_columns / 3) - 1)
+        +prepend(1)
+        +last
+
       #quote-review
         abbr
           color: red
@@ -197,9 +210,6 @@ body.bp
       #price
         color: green
         font-size: 3em
-
-      #metals
-        clear: both
 
   #footer
     :height 7em

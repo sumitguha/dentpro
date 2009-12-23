@@ -14,8 +14,15 @@
     = form.input :side_mirror_repair, :label => "<b>Side Mirror Repair - #{number_to_currency(@prices[:side_mirror_repair])}</b>", :as => :select, :collection => %w(1 2), :required => false
     = form.input :paint_touch_up, :label => "<b>Paint Touch Up - #{number_to_currency(@prices[:paint_touch_up])}</b>", :as => :select, :collection => @dents_collection, :required => false
 
-    %h3 Select the locations for dent repair and color service:
-    = form.input :parts, :as => :check_boxes, :collection => @parts_collection.map! {|h| h.humanize }, :required => false
+    #parts
+      %h3 Select the locations for dent repair and color service:
+      %br.clear
+      #parts-left
+        = form.input :parts_left, :as => :check_boxes, :collection => @parts_collection[:left].map! {|h| h.humanize }, :required => false
+      #parts-other
+        = form.input :parts_other, :as => :check_boxes, :collection => @parts_collection[:other].map! {|h| h.humanize }, :required => false
+      #parts-right
+        = form.input :parts_right, :as => :check_boxes, :collection => @parts_collection[:right].map! {|h| h.humanize }, :required => false
 
   %br.clear
 

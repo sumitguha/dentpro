@@ -21,20 +21,46 @@ form.formtastic.quote fieldset ol li.select label {
   width: 175px;
 }
 
-form.formtastic.quote li#quote_parts_input fieldset legend label {
+form.formtastic.quote fieldset.buttons {
+  padding: 0px;
+}
+
+/* three column parts checkboxes */
+
+#quote_parts_left_input fieldset legend label {
   display: none;
 }
 
-form.formtastic.quote li#quote_parts_input fieldset ol {
+#quote_parts_other_input fieldset legend label {
+  display: none;
+}
+
+#quote_parts_right_input fieldset legend label {
+  display: none;
+}
+
+#quote_parts_left_input fieldset ol {
   padding-left: 0px;
 }
 
-form.formtastic.quote li#quote_parts_input fieldset ol li label {
+#quote_parts_other_input fieldset ol {
+  padding-left: 0px;
+}
+
+#quote_parts_right_input fieldset ol {
+  padding-left: 0px;
+}
+
+#quote_parts_left_input fieldset ol li label {
   width: 200px;
 }
 
-form.formtastic.quote fieldset.buttons {
-  padding: 0px;
+#quote_parts_other_input fieldset ol li label {
+  width: 200px;
+}
+
+#quote_parts_right_input fieldset ol li label {
+  width: 200px;
 }
 
 /* customer form overrides */
