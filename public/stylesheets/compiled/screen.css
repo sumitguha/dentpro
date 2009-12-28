@@ -379,7 +379,11 @@ body.bp {
     margin: 0 auto;
     overflow: hidden;
     display: inline-block;
+<<<<<<< HEAD
     background: #d9dee5; }
+=======
+    background: white; }
+>>>>>>> 48f496c... experimental color change with DW.
     /* line 5, ../../../vendor/gems/compass-0.8.17/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
     body.bp #container {
       display: block; }
