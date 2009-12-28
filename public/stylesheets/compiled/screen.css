@@ -379,7 +379,7 @@ body.bp {
     margin: 0 auto;
     overflow: hidden;
     display: inline-block;
-    background: white; }
+    background: #c5ceda; }
     /* line 5, ../../../vendor/gems/compass-0.8.17/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
     body.bp #container {
       display: block; }
