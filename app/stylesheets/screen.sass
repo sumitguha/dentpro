@@ -137,26 +137,26 @@ body.bp
           +column((!blueprint_content_columns / 4) - 1)
           +prepend(1)
           +box
-          background: #C5CEDA
+          background= !content_background_color
 
         .col2
           +column((!blueprint_content_columns / 4) - 1)
           +prepend(1)
           +box
-          background: #C5CEDA
+          background= !content_background_color
 
         .col3
           +column((!blueprint_content_columns / 4) - 1)
           +prepend(1)
           +box
-          background: #C5CEDA
+          background= !content_background_color
 
         .col4
           +column((!blueprint_content_columns / 4) - 1)
           +prepend(1)
           +last
           +box
-          background: #C5CEDA
+          background= !content_background_color
 
         .row
           margin-top: 0px
@@ -169,18 +169,27 @@ body.bp
             vertical-align: top
             font-size: 1.5em
 
-      #parts-left
-        +column((!blueprint_content_columns / 3) - 1)
-        +prepend(1)
+      #dents, #colors, #parts
+        border: 1px solid grey
+        padding: 1em
+        margin-bottom: 2em
 
-      #parts-other
-        +column((!blueprint_content_columns / 3) - 1)
-        +prepend(1)
+      #parts
+        +box
+        background= !content_background_color
 
-      #parts-right
-        +column((!blueprint_content_columns / 3) - 1)
-        +prepend(1)
-        +last
+        #parts-left
+          +column((!blueprint_content_columns / 3) - 2)
+          +prepend(1)
+
+        #parts-other
+          +column((!blueprint_content_columns / 3) - 2)
+          +prepend(1)
+
+        #parts-right
+          +column((!blueprint_content_columns / 3) - 2)
+          +prepend(1)
+          +last
 
       #quote-review
         abbr
