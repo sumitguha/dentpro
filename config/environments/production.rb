@@ -28,10 +28,10 @@ config.action_mailer.raise_delivery_errors = true
 # config.threadsafe!
 
 # clearance
-HOST = "dentpro-dev.heroku.com"
+HOST = "www.dentpro.com"
 
 # email config
-DENTPRO_EMAIL_RECIPIENTS = 'sumit@dentpro.com'
+DENTPRO_EMAIL_RECIPIENTS = 'appointments@dentpro.com'
 DENTPRO_EMAIL_FROM = 'donotreply@dentpro.com'
 
 ActionMailer::Base.smtp_settings = {
