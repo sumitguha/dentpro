@@ -8,7 +8,7 @@
 
 if RAILS_ENV == 'development'
   User.destroy_all
-  User.create(:email => 'admin@dentpro.com', :password => 'test', :password_confirmation => 'test')
+  User.create(:email => 'admin@dentpro.com', :password => 'ox4owg8yed4c', :password_confirmation => 'ox4owg8yed4c')
   u = User.find_by_email('admin@dentpro.com')
   u.email_confirmed = true
   u.save
