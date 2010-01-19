@@ -14,6 +14,8 @@ class HomeController < ApplicationController
       states << loc.state unless loc.state.nil?
     end
 
+    states.uniq!
+
     # degrade gracefully if we have not yet defined any locations in the DB
     # Makes use of the numbersToWords plugin:
     # http://github.com/accidental/numbersToWords
