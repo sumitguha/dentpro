@@ -17,6 +17,10 @@ Customer Information
 <%= "State : #{@customer.state}" %>
 <%= "ZIP : #{@customer.zip}" %>
 
+Club DentPro Member?
+=============================
+<%= @quote && @quote.club_dentpro_member && @quote.club_dentpro_member == "1" ? "Yes" : "No" %>
+
 Customer Preferences
 =============================
 <%= "Service Area : #{@customer.service_area}" %>

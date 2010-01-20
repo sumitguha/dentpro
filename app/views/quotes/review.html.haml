@@ -17,6 +17,7 @@
     -if @customer && @customer.errors
       = form.error_messages
       %br
+
     - form.inputs do
       = form.input :name, :required => true
       = form.input :title, :required => false

@@ -26,5 +26,9 @@
         = form.input :parts_right, :as => :check_boxes, :collection => @parts_collection[:right].map! {|h| h.humanize }, :required => false
       %br.clear
 
+    #clubDentPro
+      %h3 Are you a ClubDentPro Member?
+      = form.input :club_dentpro_member, :as => :boolean, :label => "Club DentPro Member?", :required => false
+
   - form.buttons do
     = form.commit_button "View My Estimate"

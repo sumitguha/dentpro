@@ -22,6 +22,13 @@
     %br
     = "#{@customer.phone}"
 
+%h4 Club DentPro Member?
+- if @quote && @quote.club_dentpro_member && @quote.club_dentpro_member == "1"
+  %p
+    %b Yes, I am a Club DentPro member.
+- else
+  %p
+    %b No, I am not a Club DentPro member.
 
 - unless @quote && @quote.dent_4.blank? && @quote.dent_3.blank? && @quote.dent_2.blank? && @quote.dent_1.blank?
   %h4 Dent Repairs

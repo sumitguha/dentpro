@@ -4,7 +4,8 @@ class Quote < PassiveRecord::Base
   belongs_to :customer
   define_fields :dent_1, :dent_2, :dent_3, :dent_4,
                 :bumper_repair, :side_mirror_repair, :paint_touch_up,
-                :parts_left, :parts_right, :parts_other, :pretty_parts
+                :parts_left, :parts_right, :parts_other, :pretty_parts,
+                :club_dentpro_member
 
 end
 

@@ -63,6 +63,12 @@ form.formtastic.quote fieldset.buttons {
   width: 200px;
 }
 
+/* club dentpro checkbox */
+
+#clubDentPro li label {
+  padding-left: 0px;
+}
+
 /* customer form overrides */
 
 form.formtastic.customer fieldset ol li label {

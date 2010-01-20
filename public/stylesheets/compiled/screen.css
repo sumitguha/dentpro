@@ -628,7 +628,7 @@ body.bp {
           body.bp #content #content-inner #home .row a:hover {
             text-decoration: underline; }
       /* line 172, ../../../app/stylesheets/screen.sass */
-      body.bp #content #content-inner #dents, body.bp #content #content-inner #colors, body.bp #content #content-inner #parts {
+      body.bp #content #content-inner #dents, body.bp #content #content-inner #colors, body.bp #content #content-inner #parts, body.bp #content #content-inner #clubDentPro {
         border: 1px solid grey;
         padding: 1em;
         margin-bottom: 2em; }
