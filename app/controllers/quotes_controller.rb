@@ -98,7 +98,6 @@ class QuotesController < ApplicationController
 
       prices = price_list
 
-      # Paint Touch Ups don't get discount treatment
       price += @quote.bumper_repair.to_i        * prices[:bumper_repair]
       price += @quote.side_mirror_repair.to_i   * prices[:side_mirror_repair]
       price += @quote.paint_touch_up.to_i       * prices[:paint_touch_up]
@@ -115,25 +114,19 @@ class QuotesController < ApplicationController
         prices[:dent_1] = prices[:dent_1] / 2
       end
 
-      # The self-declared Club DentPro members get an *additional* %25 discount (N * 0.75) on
-      # dent repairs beyond the largest dent.
-      if club_dentpro?
-        if @quote.dent_4.to_i > 0
-          prices[:dent_3] = prices[:dent_3] * 0.75
-          prices[:dent_2] = prices[:dent_2] * 0.75
-          prices[:dent_1] = prices[:dent_1] * 0.75
-        elsif @quote.dent_3.to_i > 0
-          prices[:dent_2] = prices[:dent_2] * 0.75
-          prices[:dent_1] = prices[:dent_1] * 0.75
-        elsif @quote.dent_2.to_i > 0
-          prices[:dent_1] = prices[:dent_1] * 0.75
-        end
-      end
-
       price += @quote.dent_4.to_i * prices[:dent_4]
       price += @quote.dent_3.to_i * prices[:dent_3]
       price += @quote.dent_2.to_i * prices[:dent_2]
       price += @quote.dent_1.to_i * prices[:dent_1]
+
+      # The self-declared Club DentPro members get an *additional* %25 discount (N * 0.75) on
+      # the total estimate price (ALL repairs, not just Dents).
+      if club_dentpro?
+        price = price * 0.75
+      else
+        return price
+      end
+
     end
 
     # optionally pass in a string or symbol which is the hash key you want e.g. parts(:left) or parts("left")
