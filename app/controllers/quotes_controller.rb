@@ -104,25 +104,36 @@ class QuotesController < ApplicationController
       price += @quote.paint_touch_up.to_i       * prices[:paint_touch_up]
 
       # Price the largest dent first and then take 50% (divide by 2) off subsequent smaller dents
-      # The discount is %75 (divide by 4) for self-declared Club DentPro members.
-
-      discount_divisor = @quote.club_dentpro_member == "1" ? 4 : 2
-
       if @quote.dent_4.to_i > 0
-        prices[:dent_3] = prices[:dent_3] / discount_divisor
-        prices[:dent_2] = prices[:dent_2] / discount_divisor
-        prices[:dent_1] = prices[:dent_1] / discount_divisor
+        prices[:dent_3] = prices[:dent_3] / 2
+        prices[:dent_2] = prices[:dent_2] / 2
+        prices[:dent_1] = prices[:dent_1] / 2
       elsif @quote.dent_3.to_i > 0
-        prices[:dent_2] = prices[:dent_2] / discount_divisor
-        prices[:dent_1] = prices[:dent_1] / discount_divisor
+        prices[:dent_2] = prices[:dent_2] / 2
+        prices[:dent_1] = prices[:dent_1] / 2
       elsif @quote.dent_2.to_i > 0
-        prices[:dent_1] = prices[:dent_1] / discount_divisor
+        prices[:dent_1] = prices[:dent_1] / 2
       end
 
-      price += @quote.dent_4.to_i               * prices[:dent_4]
-      price += @quote.dent_3.to_i               * prices[:dent_3]
-      price += @quote.dent_2.to_i               * prices[:dent_2]
-      price += @quote.dent_1.to_i               * prices[:dent_1]
+      # The self-declared Club DentPro members get an *additional* %25 discount (N * 0.75) on
+      # dent repairs beyond the largest dent.
+      if club_dentpro?
+        if @quote.dent_4.to_i > 0
+          prices[:dent_3] = prices[:dent_3] * 0.75
+          prices[:dent_2] = prices[:dent_2] * 0.75
+          prices[:dent_1] = prices[:dent_1] * 0.75
+        elsif @quote.dent_3.to_i > 0
+          prices[:dent_2] = prices[:dent_2] * 0.75
+          prices[:dent_1] = prices[:dent_1] * 0.75
+        elsif @quote.dent_2.to_i > 0
+          prices[:dent_1] = prices[:dent_1] * 0.75
+        end
+      end
+
+      price += @quote.dent_4.to_i * prices[:dent_4]
+      price += @quote.dent_3.to_i * prices[:dent_3]
+      price += @quote.dent_2.to_i * prices[:dent_2]
+      price += @quote.dent_1.to_i * prices[:dent_1]
     end
 
     # optionally pass in a string or symbol which is the hash key you want e.g. parts(:left) or parts("left")
@@ -192,6 +203,10 @@ class QuotesController < ApplicationController
       end
 
       return resp
+    end
+
+    def club_dentpro?
+      @quote.club_dentpro_member == "1" ? true : false
     end
 
 end
