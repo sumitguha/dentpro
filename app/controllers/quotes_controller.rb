@@ -103,16 +103,20 @@ class QuotesController < ApplicationController
       price += @quote.side_mirror_repair.to_i   * prices[:side_mirror_repair]
       price += @quote.paint_touch_up.to_i       * prices[:paint_touch_up]
 
-      # Price the largest dent first and then take 50% off subsequent smaller dents
+      # Price the largest dent first and then take 50% (divide by 2) off subsequent smaller dents
+      # The discount is %75 (divide by 4) for self-declared Club DentPro members.
+
+      discount_divisor = @quote.club_dentpro_member == "1" ? 4 : 2
+
       if @quote.dent_4.to_i > 0
-        prices[:dent_3] = prices[:dent_3] / 2
-        prices[:dent_2] = prices[:dent_2] / 2
-        prices[:dent_1] = prices[:dent_1] / 2
+        prices[:dent_3] = prices[:dent_3] / discount_divisor
+        prices[:dent_2] = prices[:dent_2] / discount_divisor
+        prices[:dent_1] = prices[:dent_1] / discount_divisor
       elsif @quote.dent_3.to_i > 0
-        prices[:dent_2] = prices[:dent_2] / 2
-        prices[:dent_1] = prices[:dent_1] / 2
+        prices[:dent_2] = prices[:dent_2] / discount_divisor
+        prices[:dent_1] = prices[:dent_1] / discount_divisor
       elsif @quote.dent_2.to_i > 0
-        prices[:dent_1] = prices[:dent_1] / 2
+        prices[:dent_1] = prices[:dent_1] / discount_divisor
       end
 
       price += @quote.dent_4.to_i               * prices[:dent_4]
