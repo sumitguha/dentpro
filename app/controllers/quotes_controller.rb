@@ -102,22 +102,53 @@ class QuotesController < ApplicationController
       price += @quote.side_mirror_repair.to_i   * prices[:side_mirror_repair]
       price += @quote.paint_touch_up.to_i       * prices[:paint_touch_up]
 
-      # Price the largest dent first and then take 50% (divide by 2) off subsequent smaller dents
-      if @quote.dent_4.to_i > 0
-        prices[:dent_3] = prices[:dent_3] / 2
-        prices[:dent_2] = prices[:dent_2] / 2
-        prices[:dent_1] = prices[:dent_1] / 2
-      elsif @quote.dent_3.to_i > 0
-        prices[:dent_2] = prices[:dent_2] / 2
-        prices[:dent_1] = prices[:dent_1] / 2
-      elsif @quote.dent_2.to_i > 0
-        prices[:dent_1] = prices[:dent_1] / 2
+      # Price the largest dent first and then take 50% (N * 0.50) off subsequent smaller dents
+      discount_multiplier = 0.50
+      num_dents = 0
+
+      if @quote.dent_4
+        1.upto(@quote.dent_4.to_i).each {|dent|
+          if num_dents == 0
+            price += prices[:dent_4]
+          else
+            price += prices[:dent_4] * discount_multiplier
+          end
+          num_dents += 1
+        }
       end
 
-      price += @quote.dent_4.to_i * prices[:dent_4]
-      price += @quote.dent_3.to_i * prices[:dent_3]
-      price += @quote.dent_2.to_i * prices[:dent_2]
-      price += @quote.dent_1.to_i * prices[:dent_1]
+      if @quote.dent_3
+        1.upto(@quote.dent_3.to_i).each {|dent|
+          if num_dents == 0
+            price += prices[:dent_3]
+          else
+            price += prices[:dent_3] * discount_multiplier
+          end
+          num_dents += 1
+        }
+      end
+
+      if @quote.dent_2
+        1.upto(@quote.dent_2.to_i).each {|dent|
+          if num_dents == 0
+            price += prices[:dent_2]
+          else
+            price += prices[:dent_2] * discount_multiplier
+          end
+          num_dents += 1
+        }
+      end
+
+      if @quote.dent_1
+        1.upto(@quote.dent_1.to_i).each {|dent|
+          if num_dents == 0
+            price += prices[:dent_1]
+          else
+            price += prices[:dent_1] * discount_multiplier
+          end
+          num_dents += 1
+        }
+      end
 
       # The self-declared Club DentPro members get an *additional* %25 discount (N * 0.75) on
       # the total estimate price (ALL repairs, not just Dents).
