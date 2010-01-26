@@ -106,8 +106,8 @@ class QuotesController < ApplicationController
       discount_multiplier = 0.50
       num_dents = 0
 
-      if @quote.dent_4
-        1.upto(@quote.dent_4.to_i).each {|dent|
+      if @quote && @quote.dent_4
+        (1..@quote.dent_4.to_i).each {|dent|
           if num_dents == 0
             price += prices[:dent_4]
           else
@@ -117,8 +117,8 @@ class QuotesController < ApplicationController
         }
       end
 
-      if @quote.dent_3
-        1.upto(@quote.dent_3.to_i).each {|dent|
+      if @quote && @quote.dent_3
+        (1..@quote.dent_3.to_i).each {|dent|
           if num_dents == 0
             price += prices[:dent_3]
           else
@@ -128,8 +128,8 @@ class QuotesController < ApplicationController
         }
       end
 
-      if @quote.dent_2
-        1.upto(@quote.dent_2.to_i).each {|dent|
+      if @quote && @quote.dent_2
+        (1..@quote.dent_2.to_i).each {|dent|
           if num_dents == 0
             price += prices[:dent_2]
           else
@@ -139,8 +139,8 @@ class QuotesController < ApplicationController
         }
       end
 
-      if @quote.dent_1
-        1.upto(@quote.dent_1.to_i).each {|dent|
+      if @quote && @quote.dent_1
+        (1..@quote.dent_1.to_i).each {|dent|
           if num_dents == 0
             price += prices[:dent_1]
           else
