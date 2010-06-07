@@ -20,7 +20,7 @@ config.action_mailer.raise_delivery_errors = true
 HOST = "localhost"
 
 # email config
-DENTPRO_EMAIL_RECIPIENTS = 'glenn@rempe.us'
+DENTPRO_EMAIL_RECIPIENTS = 'sumitguha2@gmail.com'
 DENTPRO_EMAIL_FROM = 'dentpro@rempe.us'
 
 ActionMailer::Base.smtp_settings = {
